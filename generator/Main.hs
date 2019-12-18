@@ -2,7 +2,7 @@ module Main where
 
 import Data.Aeson (encode)
 import qualified Data.ByteString.Lazy.Char8 as BS
-import Data.Char (isAlphaNum, isDigit, toLower)
+import Data.Char (isAlphaNum, isDigit, isPunctuation, toLower)
 import Data.List (intercalate)
 import Data.List.Split (splitOn)
 import qualified Data.Map as M
@@ -31,6 +31,7 @@ process :: [String] -> String -> [String]
 process dict =
   filter validWord .
   map (filter isAlphaNum . map toLower) .
+  filter (\word -> not (null word) && not (isPunctuation (head word))) .
   concatMap words . lines . replace "--" " "
   where
     replace from to = intercalate to . splitOn from

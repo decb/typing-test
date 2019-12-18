@@ -1,0 +1,28 @@
+name: markov-generator
+version: '0.1'
+synopsis: Generates a Markov chain representation given a text file.
+author: decb
+dependencies:
+- aeson
+- base
+- bytestring
+- containers
+- split
+
+ghc-options:
+- -O0
+- -Wall
+- -Werror
+- -Wcompat
+- -Wincomplete-record-updates
+- -Wincomplete-uni-patterns
+- -Wredundant-constraints
+- -Wno-unused-matches
+- -Wno-name-shadowing
+- -Wno-type-defaults
+
+executables:
+  markov-generator:
+    main: Main.hs
+    source-dirs: .
+    ghc-options: -main-is Main

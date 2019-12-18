@@ -23,7 +23,9 @@ main = do
       BS.writeFile outFile json
     _ -> putStrLn "Usage: generate-markov [input] [output]"
 
-type Markov a = M.Map a (M.Map a Int)
+type Markov = M.Map String MarkovEntry
+
+type MarkovEntry = (Int, M.Map String Int)
 
 process :: [String] -> String -> [String]
 process dict =
@@ -34,7 +36,7 @@ process dict =
     replace from to = intercalate to . splitOn from
     validWord word = (not . all isDigit) word && word `elem` dict
 
-generateMarkov :: [String] -> Markov String
+generateMarkov :: [String] -> Markov
 generateMarkov xs = M.map numericise (go xs M.empty)
   where
     go (x:y:xs) res =
@@ -42,4 +44,6 @@ generateMarkov xs = M.map numericise (go xs M.empty)
         Just ys -> go (y : xs) (M.adjust (y :) x res)
         Nothing -> go (y : xs) (M.insert x [y] res)
     go _ res = res
-    numericise xs = M.fromList $ map (\x -> (x, length $ filter (x ==) xs)) xs
+    numericise xs =
+      M.mapAccum (\total wordLength -> (total + wordLength, total)) 0 $
+      M.fromList $ map (\x -> (x, length $ filter (x ==) xs)) xs

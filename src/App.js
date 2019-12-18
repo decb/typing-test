@@ -1,11 +1,14 @@
 import React from "react";
+
+import SelectData from "./SelectData";
 import Words from "./Words";
-import data from "./markov";
 
 function App() {
+  const [data, setData] = React.useState(undefined);
   return (
     <div className="App">
-      <Words data={data} />
+      <SelectData setData={setData} />
+      {(data !== undefined && <Words data={data} />)}
     </div>
   );
 }

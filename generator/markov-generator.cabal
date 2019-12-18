@@ -1,0 +1,29 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.31.2.
+--
+-- see: https://github.com/sol/hpack
+--
+-- hash: ec59299298f6b6909f275bb84a604eaef99eb72b25fa1a3df01beb13f650cee8
+
+name:           markov-generator
+version:        0.1
+synopsis:       Generates a Markov chain representation given a text file.
+author:         decb
+maintainer:     decb
+build-type:     Simple
+
+executable markov-generator
+  main-is: Main.hs
+  other-modules:
+      Paths_markov_generator
+  hs-source-dirs:
+      ./.
+  ghc-options: -O0 -Wall -Werror -Wcompat -Wincomplete-record-updates -Wincomplete-uni-patterns -Wredundant-constraints -Wno-unused-matches -Wno-name-shadowing -Wno-type-defaults -main-is Main
+  build-depends:
+      aeson
+    , base
+    , bytestring
+    , containers
+    , split
+  default-language: Haskell2010

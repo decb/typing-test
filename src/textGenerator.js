@@ -3,11 +3,15 @@ function randInRange(lower, upper) {
 }
 
 export function nWords(data, n) {
-  const res = [randomWord(data)];
-  for (let i = 1; i < n; i++) {
-    res[i] = nextWord(data, res[i - 1]);
+  if (data !== undefined) {
+    const res = [randomWord(data)];
+    for (let i = 1; i < n; i++) {
+      res[i] = nextWord(data, res[i - 1]);
+    }
+    return res;
+  } else {
+    return [];
   }
-  return res;
 }
 
 export function addWord(data, words) {

@@ -12,15 +12,17 @@ const wordsSize = 16;
 function Game(props) {
   const [gameState, setGameState] = React.useState(gameStates.BEFORE);
   const [lower, setLower] = React.useState(0);
-  const [words, setWords] = React.useState(() => nWords(props.data, wordsSize));
+  const [targetWords, setTargetWords] = React.useState(() =>
+    nWords(props.data, wordsSize)
+  );
   const [progress, setProgress] = React.useState("");
   const [inputWords, setInputWords] = React.useState([]);
   const upper = lower + wordsSize;
 
   const setCount = n => {
     setLower(n);
-    if (upper === words.length) {
-      setWords(addWord(props.data, words));
+    if (upper === targetWords.length) {
+      setTargetWords(addWord(props.data, targetWords));
     }
   };
 
@@ -43,7 +45,7 @@ function Game(props) {
   const resetGame = () => {
     makeStateTransition(gameState, gameStates.BEFORE, setGameState, gameState);
     setLower(0);
-    setWords(nWords(props.data, wordsSize));
+    setTargetWords(nWords(props.data, wordsSize));
     setProgress("");
     setInputWords([]);
   };
@@ -57,7 +59,7 @@ function Game(props) {
     <div>
       <Timer gameState={gameState} endGame={endGame} />
       <br />
-      <Words progress={progress} words={words} range={[lower, upper]} />
+      <Words progress={progress} words={targetWords} range={[lower, upper]} />
       <br />
       <UserInput
         gameState={gameState}
@@ -69,7 +71,10 @@ function Game(props) {
       <button onClick={resetGame}>Reset</button>
       <br />
       {gameState === gameStates.OVER && (
-        <Result inputWords={inputWords} words={words.slice(0, lower)} />
+        <Result
+          inputWords={inputWords}
+          targetWords={targetWords.slice(0, lower)}
+        />
       )}
     </div>
   );

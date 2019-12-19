@@ -24,9 +24,8 @@ function Result(props) {
     <div>
       In one minute, you typed {wordsTyped} words, of which {wordsCorrect} were
       correct ({wordsCorrectPercent}
-      %). This amounted to {charsTyped}
-      (excluding spaces) characters, of which {charsCorrect} were correct (
-      {charsCorrectPercent}
+      %). This amounted to {charsTyped} (excluding spaces) characters, of which{" "}
+      {charsCorrect} were correct ({charsCorrectPercent}
       %).
     </div>
   );

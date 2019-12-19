@@ -8,7 +8,11 @@ function App() {
   return (
     <div className="App">
       <SelectData setData={setData} />
-      {(data !== undefined && <Game data={data} />)}
+      {data !== undefined ? (
+        <Game data={data} />
+      ) : (
+        <div>Select a text source above.</div>
+      )}
     </div>
   );
 }

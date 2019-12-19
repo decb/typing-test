@@ -16,6 +16,7 @@ function UserInput(props) {
   }
 
   props.setCount(buffer.split(/ +/).length - 1);
+  props.setProgress(input);
 
   return (
     <input type="text" value={input} onChange={handleInput} />

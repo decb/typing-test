@@ -3,10 +3,16 @@ import React from "react";
 import { gameStates } from "./gameStates";
 import { useInterval } from "./useInterval";
 
-const totalSeconds = 4;
+const totalSeconds = 3;
 
 function Timer(props) {
-  const [seconds, setSeconds] = React.useState(() => totalSeconds);
+  const [seconds, setSeconds] = React.useState(totalSeconds);
+
+  React.useEffect(() => {
+    if (props.gameState === gameStates.BEFORE) {
+      setSeconds(totalSeconds);
+    }
+  }, [props.gameState]);
 
   useInterval(() => {
     if (props.gameState === gameStates.DURING) {

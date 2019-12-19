@@ -12,6 +12,10 @@ export default [
     displayName: "Beowulf (translated by J. Lesslie Hall)"
   },
   {
+    value: "sense_and_sensibility",
+    displayName: "Sense and Sensiblity — Jane Austen"
+  },
+  {
     value: "the_adventures_of_sherlock_holmes",
     displayName: "The Adventures of Sherlock Holmes — Sir Arthur Conan Doyle"
   }

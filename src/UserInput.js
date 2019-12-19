@@ -3,8 +3,16 @@ import React from "react";
 import { gameStates } from "./gameStates";
 
 function UserInput(props) {
-  const [buffer, setBuffer] = React.useState("");
   const [input, setInput] = React.useState("");
+
+  React.useEffect(
+    () => {
+      if (props.gameState === gameStates.BEFORE) {
+        setInput("");
+      }
+    },
+    [props.gameState]
+  );
 
   const handleInput = event => {
     if (props.gameState === gameStates.BEFORE) {
@@ -15,13 +23,12 @@ function UserInput(props) {
 
     if (newInput.length > 0 && newInput[newInput.length - 1] === " ") {
       setInput("");
-      setBuffer(buffer + newInput);
+      props.addInputWord(newInput.trim());
     } else {
       setInput(newInput);
     }
   };
 
-  props.setCount(buffer.split(/ +/).length - 1);
   props.setProgress(input);
 
   return (

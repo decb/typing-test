@@ -1,4 +1,5 @@
 import React from "react";
+import { Input } from "antd";
 
 import { gameStates } from "./gameStates";
 
@@ -7,7 +8,7 @@ function UserInput(props) {
 
   React.useEffect(
     () => {
-      if (props.gameState === gameStates.BEFORE) {
+      if (props.gameState === gameStates.BEFORE|| props.gameState == gameStates.OVER) {
         setInput("");
       }
     },
@@ -32,7 +33,7 @@ function UserInput(props) {
   props.setProgress(input);
 
   return (
-    <input
+    <Input
       type="text"
       value={input}
       onChange={handleInput}

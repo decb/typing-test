@@ -1,4 +1,5 @@
 import React from "react";
+import { Button } from 'antd';
 
 import { addWord, nWords } from "./textGenerator";
 import Timer from "./Timer";
@@ -68,7 +69,7 @@ function Game(props) {
         addInputWord={addInputWord}
       />
       <br />
-      <button onClick={resetGame}>Reset</button>
+      <Button type="primary" onClick={resetGame}>Reset</Button>
       <br />
       {gameState === gameStates.OVER && (
         <Result

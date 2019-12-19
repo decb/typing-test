@@ -1,4 +1,5 @@
 import React from "react";
+import { Card } from "antd";
 
 function Words(props) {
   const { progress, words, range } = props;
@@ -7,17 +8,23 @@ function Words(props) {
   const firstStyle = {
     backgroundColor:
       first === progress
-        ? "#00ff00"
+        ? "#b7eb8f"
         : first.indexOf(progress) === 0
-          ? "yellow"
-          : "red"
+          ? "#ffe58f"
+          : "#ffa39e"
   };
   const visible = props.words.slice(lower + 1, upper).join(" ");
 
   return (
-    <code>
-      <span style={firstStyle}>{first}</span> {visible}
-    </code>
+    <Card
+      size="small"
+      title="Words to type"
+      style={{ width: '100%' }}
+    >
+      <code>
+        <span style={firstStyle}>{first}</span> {visible}
+      </code>
+    </Card>
   );
 }
 

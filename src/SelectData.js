@@ -1,11 +1,14 @@
 import React from "react";
+import { Select } from "antd";
 
 import options from "./options";
 
+const { Option } = Select;
+
 function SelectData(props) {
   const [name, setName] = React.useState("");
-  const fetchData = event => {
-    const newName = event.target.value;
+
+  const fetchData = newName => {
     setName(newName);
 
     if (newName !== name) {
@@ -21,16 +24,14 @@ function SelectData(props) {
   };
 
   return (
-    <select value={name} onChange={fetchData}>
-      <option value="" key="">
+    <Select defaultValue="" style={{ width: "100%" }} onChange={fetchData}>
+      <Option value="" disabled>
         &mdash;
-      </option>
+      </Option>
       {options.map(opt => (
-        <option value={opt.value} key={opt.value}>
-          {opt.displayName}
-        </option>
+        <Option value={opt.value}>{opt.displayName}</Option>
       ))}
-    </select>
+    </Select>
   );
 }
 

@@ -1,4 +1,5 @@
 import React from "react";
+import { Alert } from "antd";
 
 const zip = (xs, ys) => xs.map((e, i) => [e, ys[i]]);
 const percent = (x, y) => Math.round((y / x) * 100);
@@ -20,14 +21,13 @@ function Result(props) {
   const charsCorrect = sameCount(inputWordsChars, targetWordsChars);
   const charsCorrectPercent = percent(charsTyped, charsCorrect);
 
+  const finalMessage = `In one minute, you typed ${wordsTyped} words, of which
+  ${wordsCorrect} were correct (${wordsCorrectPercent}%). This amounted to
+  ${charsTyped} characters (excluding spaces), of which ${charsCorrect} were
+  correct (${charsCorrectPercent}%)`;
+
   return (
-    <div>
-      In one minute, you typed {wordsTyped} words, of which {wordsCorrect} were
-      correct ({wordsCorrectPercent}
-      %). This amounted to {charsTyped} (excluding spaces) characters, of which{" "}
-      {charsCorrect} were correct ({charsCorrectPercent}
-      %).
-    </div>
+    <Alert message="Test complete" description={finalMessage} type="success" />
   );
 }
 

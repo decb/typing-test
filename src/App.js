@@ -1,4 +1,5 @@
 import React from "react";
+import { Alert } from "antd";
 
 import SelectData from "./SelectData";
 import Game from "./Game";
@@ -11,7 +12,7 @@ function App() {
       {data !== undefined ? (
         <Game data={data} />
       ) : (
-        <div>Select a text source above.</div>
+        <Alert message="Select a text source above" type="info" showIcon />
       )}
     </div>
   );

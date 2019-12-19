@@ -1,10 +1,9 @@
 import React from "react";
-import { Statistic } from "antd";
 
 import { gameStates } from "./gameStates";
 import { useInterval } from "./useInterval";
 
-const totalSeconds = 3;
+const totalSeconds = 60;
 
 function Timer(props) {
   const [seconds, setSeconds] = React.useState(totalSeconds);
@@ -28,7 +27,7 @@ function Timer(props) {
     }
   }, 1000);
 
-  return <Statistic title="Time remaining (seconds)" value={seconds} />;
+  return <span>{seconds} seconds</span>;
 }
 
 export default Timer;

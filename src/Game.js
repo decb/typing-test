@@ -1,11 +1,11 @@
 import React from "react";
-import { Button } from 'antd';
+import { Button, Card, Col, Row } from "antd";
 
 import { addWord, nWords } from "./textGenerator";
 import Timer from "./Timer";
 import UserInput from "./UserInput";
 import Words from "./Words";
-import { gameStates, makeStateTransition } from "./gameStates";
+import { gameStates } from "./gameStates";
 import Result from "./Result";
 
 const wordsSize = 16;
@@ -27,24 +27,18 @@ function Game(props) {
     }
   };
 
-  const startGame = () =>
-    makeStateTransition(
-      gameStates.BEFORE,
-      gameStates.DURING,
-      setGameState,
-      gameState
-    );
+  const makeStateTransition = (from, to) => {
+    if (gameState === from) {
+      setGameState(to);
+    }
+  };
 
-  const endGame = () =>
-    makeStateTransition(
-      gameStates.DURING,
-      gameStates.OVER,
-      setGameState,
-      gameState
-    );
+  const startGame = () =>
+    makeStateTransition(gameStates.BEFORE, gameStates.DURING);
+  const endGame = () => makeStateTransition(gameStates.DURING, gameStates.OVER);
 
   const resetGame = () => {
-    makeStateTransition(gameState, gameStates.BEFORE, setGameState, gameState);
+    makeStateTransition(gameState, gameStates.BEFORE);
     setLower(0);
     setTargetWords(nWords(props.data, wordsSize));
     setProgress("");
@@ -56,28 +50,55 @@ function Game(props) {
     setCount(inputWords.length + 1);
   };
 
+  const rowMargin = { marginTop: "0.8rem" };
   return (
-    <div>
-      <Timer gameState={gameState} endGame={endGame} />
-      <br />
-      <Words progress={progress} words={targetWords} range={[lower, upper]} />
-      <br />
-      <UserInput
-        gameState={gameState}
-        startGame={startGame}
-        setProgress={setProgress}
-        addInputWord={addInputWord}
-      />
-      <br />
-      <Button type="primary" onClick={resetGame}>Reset</Button>
-      <br />
+    <Card style={{ marginTop: "0.7rem" }}>
+      <Row>
+        <Card
+          size="small"
+          title="Words to type"
+          style={{ width: "100%" }}
+          extra={<Timer gameState={gameState} endGame={endGame} />}
+        >
+          <Words
+            progress={progress}
+            words={targetWords}
+            range={[lower, upper]}
+          />
+        </Card>
+      </Row>
+      <Row style={rowMargin}>
+        <Col xs={16} sm={16} md={20} lg={20} xl={20}>
+          <UserInput
+            gameState={gameState}
+            startGame={startGame}
+            setProgress={setProgress}
+            addInputWord={addInputWord}
+          />
+        </Col>
+        <Col xs={8} sm={8} md={4} lg={4} xl={4}>
+          <Button
+            type="primary"
+            onClick={resetGame}
+            style={{
+              width: "100%",
+              borderTopLeftRadius: 0,
+              borderBottomLeftRadius: 0
+            }}
+          >
+            Reset
+          </Button>
+        </Col>
+      </Row>
       {gameState === gameStates.OVER && (
-        <Result
-          inputWords={inputWords}
-          targetWords={targetWords.slice(0, lower)}
-        />
+        <Row style={rowMargin}>
+          <Result
+            inputWords={inputWords}
+            targetWords={targetWords.slice(0, lower)}
+          />
+        </Row>
       )}
-    </div>
+    </Card>
   );
 }
 

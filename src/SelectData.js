@@ -24,12 +24,18 @@ function SelectData(props) {
   };
 
   return (
-    <Select defaultValue="" style={{ width: "100%" }} onChange={fetchData}>
+    <Select
+      defaultValue=""
+      style={{ width: "100%", marginTop: "1.2rem" }}
+      onChange={fetchData}
+    >
       <Option value="" disabled>
         &mdash;
       </Option>
       {options.map(opt => (
-        <Option value={opt.value}>{opt.displayName}</Option>
+        <Option value={opt.value} key={opt.value}>
+          {opt.displayName}
+        </Option>
       ))}
     </Select>
   );

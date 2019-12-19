@@ -8,7 +8,10 @@ function UserInput(props) {
 
   React.useEffect(
     () => {
-      if (props.gameState === gameStates.BEFORE|| props.gameState == gameStates.OVER) {
+      if (
+        props.gameState === gameStates.BEFORE ||
+        props.gameState === gameStates.OVER
+      ) {
         setInput("");
       }
     },
@@ -38,6 +41,10 @@ function UserInput(props) {
       value={input}
       onChange={handleInput}
       disabled={props.gameState === gameStates.OVER}
+      style={{
+        borderTopRightRadius: 0,
+        borderBottomRightRadius: 0
+      }}
     />
   );
 }

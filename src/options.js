@@ -13,7 +13,7 @@ export default [
   },
   {
     value: "sense_and_sensibility",
-    displayName: "Sense and Sensiblity — Jane Austen"
+    displayName: "Sense and Sensibility — Jane Austen"
   },
   {
     value: "the_adventures_of_sherlock_holmes",

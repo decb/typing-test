@@ -1,7 +1,3 @@
-function randInRange(lower, upper) {
-  return Math.floor(Math.random() * (upper - lower + 1)) + lower;
-}
-
 export function nWords(data, n) {
   if (data !== undefined) {
     const res = [randomWord(data)];
@@ -17,6 +13,10 @@ export function nWords(data, n) {
 export function addWord(data, words) {
   const last = words[words.length - 1];
   return words.concat([nextWord(data, last)]);
+}
+
+function randInRange(lower, upper) {
+  return Math.floor(Math.random() * (upper - lower + 1)) + lower;
 }
 
 function randomWord(data) {

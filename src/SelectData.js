@@ -26,7 +26,7 @@ function SelectData(props) {
   return (
     <Select
       defaultValue=""
-      style={{ width: "100%", marginTop: "1.2rem", whiteSpace: 'nowrap'}}
+      style={{ width: "100%", marginTop: "0.7rem", whiteSpace: 'nowrap'}}
       onChange={fetchData}
     >
       <Option value="" disabled>

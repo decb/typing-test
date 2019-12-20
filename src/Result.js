@@ -3,13 +3,18 @@ import { Alert } from "antd";
 
 const zip = (xs, ys) => xs.map((e, i) => [e, ys[i]]);
 const percent = (x, y) => Math.round((y / x) * 100);
-const strsToCharArray = s => s.join("").split("");
+const add = (a, b) => a + b;
+const listPairSimilarity = (pair) => {
+  const [array1, array2]= pair.map(e => e.split(""));
+  const comparison = array2.map((e, i) => array1[i] === e ? 1 : 0);
+  return comparison.reduce(add);
+}
 const sameCount = (xs, ys) =>
   xs.length === 0
     ? 0
     : zip(xs, ys)
         .map(pair => (pair[0] === pair[1] ? 1 : 0))
-        .reduce((a, b) => a + b);
+        .reduce(add);
 
 function buildMessage(
   wordsTyped,
@@ -38,6 +43,8 @@ function buildMessage(
   result += `This amounted to ${charsTyped} characters`;
   if (charsTyped !== charsCorrect) {
     result += ofWhich(charsCorrect, charsCorrectPercent);
+  } else {
+    result += ". ";
   }
 
   result += tryAgain;
@@ -51,10 +58,10 @@ function Result(props) {
   const wordsCorrect = sameCount(inputWords, targetWords);
   const wordsCorrectPercent = percent(wordsTyped, wordsCorrect);
 
-  const inputWordsChars = strsToCharArray(inputWords);
-  const targetWordsChars = strsToCharArray(targetWords);
-  const charsTyped = inputWordsChars.length;
-  const charsCorrect = sameCount(inputWordsChars, targetWordsChars);
+  const charsCorrect = zip(inputWords, targetWords)
+    .map(listPairSimilarity)
+    .reduce(add);
+  const charsTyped = inputWords.join("").split("").length;
   const charsCorrectPercent = percent(charsTyped, charsCorrect);
 
   const finalMessage = buildMessage(

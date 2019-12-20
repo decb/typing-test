@@ -25,13 +25,13 @@ function UserInput(props) {
 
     const newInput = event.target.value.toLowerCase();
 
-    if (newInput.trim() !== "") {
-      if (newInput.length > 0 && newInput[newInput.length - 1] === " ") {
-        setInput("");
-        props.addInputWord(newInput.trim());
-      } else {
-        setInput(newInput);
-      }
+    const completeEntry = new RegExp(/[\S]+\s/);
+    const partialEntry = new RegExp(/(^$)|([\S]+)/);
+    if (completeEntry.test(newInput)) {
+      setInput("");
+      props.addInputWord(newInput.trim());
+    } else if (partialEntry.test(newInput)) {
+      setInput(newInput);
     }
   };
 

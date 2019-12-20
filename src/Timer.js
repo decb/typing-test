@@ -1,6 +1,6 @@
 import React from "react";
 
-import { gameStates } from "./gameStates";
+import { gameStates } from "./states";
 import { useInterval } from "./useInterval";
 
 const totalSeconds = 60;

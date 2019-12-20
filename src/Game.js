@@ -5,7 +5,7 @@ import { addWord, nWords } from "./textGenerator";
 import Timer from "./Timer";
 import UserInput from "./UserInput";
 import Words from "./Words";
-import { gameStates } from "./gameStates";
+import { gameStates } from "./states";
 import Result from "./Result";
 
 const wordsSize = 16;

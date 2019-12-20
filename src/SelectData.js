@@ -2,6 +2,7 @@ import React from "react";
 import { Select } from "antd";
 
 import options from "./options";
+import { appStates } from "./states";
 
 const { Option } = Select;
 
@@ -9,6 +10,7 @@ function SelectData(props) {
   const [name, setName] = React.useState("");
 
   const fetchData = newName => {
+    props.setFetchState(appStates.LOADING);
     setName(newName);
 
     if (newName !== name) {
@@ -18,15 +20,18 @@ function SelectData(props) {
     if (newName !== "") {
       fetch(`/data/${newName}.json`)
         .then(response => response.json())
-        .then(data => props.setData(data))
-        .catch(err => console.log(err));
+        .then(data => {
+          props.setData(data);
+          props.setFetchState(appStates.READY);
+        })
+        .catch(err => props.setFetchState(appStates.ERROR));
     }
   };
 
   return (
     <Select
       defaultValue=""
-      style={{ width: "100%", marginTop: "0.7rem", whiteSpace: 'nowrap'}}
+      style={{ width: "100%", marginTop: "0.7rem", whiteSpace: "nowrap" }}
       onChange={fetchData}
     >
       <Option value="" disabled>

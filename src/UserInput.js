@@ -1,22 +1,19 @@
 import React from "react";
 import { Input } from "antd";
 
-import { gameStates } from "./gameStates";
+import { gameStates } from "./states";
 
 function UserInput(props) {
   const [input, setInput] = React.useState("");
 
-  React.useEffect(
-    () => {
-      if (
-        props.gameState === gameStates.BEFORE ||
-        props.gameState === gameStates.OVER
-      ) {
-        setInput("");
-      }
-    },
-    [props.gameState]
-  );
+  React.useEffect(() => {
+    if (
+      props.gameState === gameStates.BEFORE ||
+      props.gameState === gameStates.OVER
+    ) {
+      setInput("");
+    }
+  }, [props.gameState]);
 
   const handleInput = event => {
     if (props.gameState === gameStates.BEFORE) {

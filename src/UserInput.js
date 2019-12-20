@@ -25,11 +25,13 @@ function UserInput(props) {
 
     const newInput = event.target.value;
 
-    if (newInput.length > 0 && newInput[newInput.length - 1] === " ") {
-      setInput("");
-      props.addInputWord(newInput.trim());
-    } else {
-      setInput(newInput);
+    if (newInput.trim() !== "") {
+      if (newInput.length > 0 && newInput[newInput.length - 1] === " ") {
+        setInput("");
+        props.addInputWord(newInput.trim());
+      } else {
+        setInput(newInput);
+      }
     }
   };
 

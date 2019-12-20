@@ -13,7 +13,7 @@ function Introduction() {
       appear, begin typing to start the 60 second countdown. The aim is to type
       as many words as possible before time runs out. Input is not
       case-sensitive, and you must input a space between each completed word. To
-      find out more, click{" "}
+      find out more about how this works, click{" "}
       <Button size="small" onClick={handleHere}>
         here
       </Button>
@@ -46,11 +46,12 @@ function Introduction() {
           <h4>What technologies are used?</h4>
           <p>
             I wrote a script which automatically generates the Markov models of
-            the source text using <a>Haskell</a>. These are all precomputed and stored
-            as JSON files which the application requests as required. This
-            application is written using Javascript with the <a>React.js</a>{" "}
-            framework, as well as the <a>Ant Design</a> UI framework for React.
-            The React project itself is fairly simple, and I used{" "}
+            the source text using <a>Haskell</a>. These are all precomputed and
+            stored as JSON files which the application requests as required.
+            This application is written using Javascript with the{" "}
+            <a>React.js</a> framework, as well as the <a>Ant Design</a> UI
+            framework for React. The React project itself is fairly simple, and
+            I used{" "}
             <a>
               <code>create-react-app</code>
             </a>{" "}

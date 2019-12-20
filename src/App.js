@@ -4,6 +4,7 @@ import { Alert, Layout } from "antd";
 import SelectData from "./SelectData";
 import Game from "./Game";
 import Header from "./Header";
+import Introduction from "./Introduction";
 
 const { Content } = Layout;
 
@@ -21,6 +22,7 @@ function App() {
     >
       <Header />
       <Content>
+        <Introduction />
         <SelectData setData={setData} />
         {data !== undefined ? (
           <Game data={data} />

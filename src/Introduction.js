@@ -22,9 +22,9 @@ function Introduction() {
         visible={showMore}
         onOk={handleOk}
         onCancel={handleOk}
-        footer={[]}
+        footer={null}
         width="95%"
-        style={{ maxWidth: "700px" }}
+        style={{ maxWidth: "700px", top: "3%" }}
       >
         <div>
           <h4>How is the text generated?</h4>

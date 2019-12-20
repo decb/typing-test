@@ -23,7 +23,7 @@ function UserInput(props) {
       props.startGame();
     }
 
-    const newInput = event.target.value;
+    const newInput = event.target.value.toLowerCase();
 
     if (newInput.trim() !== "") {
       if (newInput.length > 0 && newInput[newInput.length - 1] === " ") {
@@ -43,6 +43,10 @@ function UserInput(props) {
       value={input}
       onChange={handleInput}
       disabled={props.gameState === gameStates.OVER}
+      autoCorrect="off"
+      autoCapitalize="off"
+      spellCheck="false"
+      autoComplete="off"
       style={{
         borderTopRightRadius: 0,
         borderBottomRightRadius: 0

@@ -18,7 +18,7 @@ function SelectData(props) {
     }
 
     if (newName !== "") {
-      fetch(`/data/${newName}.json`)
+      fetch(`${window.location.href}/data/${newName}.json`)
         .then(response => response.json())
         .then(data => {
           props.setData(data);

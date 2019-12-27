@@ -10,50 +10,11 @@ import { appStates } from "./states";
 const { Content } = Layout;
 
 function App() {
-  const [data, setData] = React.useState(undefined);
-  const [appState, setAppState] = React.useState(appStates.NONE_SELECTED);
-  const setFetchState = newState => {
-    if (appState === appStates.NONE_SELECTED) {
-      setAppState(newState);
-    }
-  };
+  const [appState, setAppState] = React.useState({
+    state: appStates.NONE_SELECTED
+  });
 
-  let appStateView = undefined;
-  switch (appState) {
-    case appStates.NONE_SELECTED:
-      appStateView = (
-        <Alert
-          message="Select a text source above."
-          type="info"
-          style={{ marginTop: "0.7rem" }}
-          showIcon
-        />
-      );
-      break;
-    case appStates.LOADING:
-      appStateView = (
-        <Alert
-          message="Loading..."
-          type="info"
-          style={{ marginTop: "0.7rem" }}
-          showIcon
-        />
-      );
-      break;
-    case appStates.READY:
-      appStateView = <Game data={data} />;
-      break;
-    case appStates.ERROR:
-      appStateView = (
-        <Alert
-          message="Error, failed to fetch text data. Perhaps try refreshing the page."
-          type="error"
-          style={{ marginTop: "0.7rem" }}
-          showIcon
-        />
-      );
-      break;
-  }
+  let appStateView = viewFromAppState(appState);
 
   return (
     <div
@@ -68,7 +29,7 @@ function App() {
       <Header />
       <Content>
         <Introduction />
-        <SelectData setData={setData} setFetchState={setFetchState} />
+        <SelectData setAppState={setAppState} />
         {appStateView}
       </Content>
     </div>
@@ -76,3 +37,44 @@ function App() {
 }
 
 export default App;
+
+function viewFromAppState(appState, data) {
+  switch (appState.state) {
+    case appStates.NONE_SELECTED:
+      return (
+        <Alert
+          message="Select a text source above."
+          type="info"
+          style={{ marginTop: "0.7rem" }}
+          showIcon
+        />
+      );
+    case appStates.LOADING:
+      return (
+        <Alert
+          message="Loading..."
+          type="info"
+          style={{ marginTop: "0.7rem" }}
+          showIcon
+        />
+      );
+    case appStates.READY:
+      return <Game data={appState.data} />;
+    case appStates.ERROR:
+      return (
+        <Alert
+          message="Error, failed to fetch text data. Perhaps try refreshing the page."
+          type="error"
+          style={{ marginTop: "0.7rem" }}
+          showIcon
+        />
+      );
+    default:
+      return <Alert
+        message="An unknown error occured. Perhaps try refreshing the page."
+        type="error"
+        style={{ marginTop: "0.7rem" }}
+        showIcon
+      />;
+  }
+}

@@ -24,6 +24,7 @@ function UserInput(props) {
 
     const completeEntry = new RegExp(/[\S]+\s/);
     const partialEntry = new RegExp(/(^$)|([\S]+)/);
+
     if (completeEntry.test(newInput)) {
       setInput("");
       props.addInputWord(newInput.trim());

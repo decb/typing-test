@@ -8,14 +8,11 @@ const totalSeconds = 60;
 function Timer(props) {
   const [seconds, setSeconds] = React.useState(totalSeconds);
 
-  React.useEffect(
-    () => {
-      if (props.gameState === gameStates.BEFORE) {
-        setSeconds(totalSeconds);
-      }
-    },
-    [props.gameState]
-  );
+  React.useEffect(() => {
+    if (props.gameState === gameStates.BEFORE) {
+      setSeconds(totalSeconds);
+    }
+  }, [props.gameState]);
 
   useInterval(() => {
     if (props.gameState === gameStates.DURING) {

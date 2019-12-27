@@ -1,20 +1,18 @@
 import React from "react";
 import { Alert } from "antd";
 
-const zip = (xs, ys) => xs.map((e, i) => [e, ys[i]]);
+const zipMap = (f, xs, ys) => xs.map((e, i) => f([e, ys[i]]));
 const percent = (x, y) => Math.round((y / x) * 100);
-const add = (a, b) => a + b;
-const listPairSimilarity = (pair) => {
-  const [array1, array2]= pair.map(e => e.split(""));
-  const comparison = array2.map((e, i) => array1[i] === e ? 1 : 0);
-  return comparison.reduce(add);
-}
+const listPairSimilarity = pair => {
+  const [array1, array2] = pair.map(e => e.split(""));
+  const comparison = array2.map((e, i) => (array1[i] === e ? 1 : 0));
+  return sum(comparison);
+};
+const sum = xs => xs.reduce((a, b) => a + b);
 const sameCount = (xs, ys) =>
   xs.length === 0
     ? 0
-    : zip(xs, ys)
-        .map(pair => (pair[0] === pair[1] ? 1 : 0))
-        .reduce(add);
+    : sum(zipMap(pair => pair[0] === pair[1] ? 1 : 0, xs, ys));
 
 function buildMessage(
   wordsTyped,
@@ -27,29 +25,28 @@ function buildMessage(
   const tryAgain =
     "To try again, press the reset button or select a new text source.";
   if (wordsTyped === 0) {
-    return "You did not complete any words. " + tryAgain;
+    return `You did not complete any words. ${tryAgain}`;
   }
 
-  const ofWhich = (n, nPercent) =>
-    `, of which ${n} were correct (${nPercent}%). `;
-  let result = `In one minute, you typed ${wordsTyped} words`;
+  const ofWhich = (n, nPc) => `, of which ${n} were correct (${nPc}%). `;
+  let result = [`In one minute, you typed ${wordsTyped} words`];
 
   if (wordsTyped === wordsCorrect) {
-    result += `, all of which were correct. `;
+    result.push(", all of which were correct. ");
   } else {
-    result += ofWhich(wordsCorrect, wordsCorrectPercent);
+    result.push(ofWhich(wordsCorrect, wordsCorrectPercent));
   }
 
-  result += `This amounted to ${charsTyped} characters`;
+  result.push(`This amounted to ${charsTyped} characters`);
   if (charsTyped !== charsCorrect) {
-    result += ofWhich(charsCorrect, charsCorrectPercent);
+    result.push(ofWhich(charsCorrect, charsCorrectPercent));
   } else {
-    result += ". ";
+    result.push(". ");
   }
 
-  result += tryAgain;
+  result.push(tryAgain);
 
-  return result;
+  return result.join("");
 }
 
 function Result(props) {
@@ -58,9 +55,7 @@ function Result(props) {
   const wordsCorrect = sameCount(inputWords, targetWords);
   const wordsCorrectPercent = percent(wordsTyped, wordsCorrect);
 
-  const charsCorrect = zip(inputWords, targetWords)
-    .map(listPairSimilarity)
-    .reduce(add);
+  const charsCorrect = sum(zipMap(listPairSimilarity, inputWords, targetWords));
   const charsTyped = inputWords.join("").split("").length;
   const charsCorrectPercent = percent(charsTyped, charsCorrect);
 

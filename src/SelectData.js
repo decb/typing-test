@@ -7,24 +7,15 @@ import { appStates } from "./states";
 const { Option } = Select;
 
 function SelectData(props) {
-  const [name, setName] = React.useState("");
-
-  const fetchData = newName => {
-    props.setFetchState(appStates.LOADING);
-    setName(newName);
-
-    if (newName !== name) {
-      props.setData(undefined);
-    }
-
-    if (newName !== "") {
-      fetch(`${window.location.href}/data/${newName}.json`)
+  const fetchData = name => {
+    if (name !== "") {
+      props.setAppState({ state: appStates.LOADING });
+      fetch(`${window.location.href}/data/${name}.json`)
         .then(response => response.json())
-        .then(data => {
-          props.setData(data);
-          props.setFetchState(appStates.READY);
-        })
-        .catch(err => props.setFetchState(appStates.ERROR));
+        .then(data => props.setAppState({ data, state: appStates.READY }))
+        .catch(err => props.setFetchState({ state: appStates.ERROR }));
+    } else {
+      props.setAppState({ state: appStates.NONE_SELECTED });
     }
   };
 

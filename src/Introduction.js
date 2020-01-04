@@ -14,9 +14,9 @@ function Introduction() {
   return (
     <Card>
       This is a simple game to test your typing speed. To begin, select a text
-      source below. Randomly generated text based on the text source will
-      appear, begin typing to start the 60 second countdown. The aim is to type
-      as many words as possible before time runs out. Input is not
+      source below, then randomly generated text based on the source will
+      appear. When you start typing a 60 second countdown begins, the aim is to
+      type as many words as possible before time runs out. Input is not
       case-sensitive, and you must input a space between each completed word. To
       find out more about how this works, click{" "}
       <Button size="small" onClick={handleHere}>
@@ -65,8 +65,7 @@ function Introduction() {
             <NewTabLink href="https://reactjs.org/">React.js</NewTabLink>{" "}
             framework, as well as the{" "}
             <NewTabLink href="https://ant.design/">Ant Design</NewTabLink> UI
-            framework for React. The React project itself is fairly simple, and
-            I used{" "}
+            framework. The React project itself is fairly simple, and I used{" "}
             <NewTabLink href="https://create-react-app.dev/">
               <code>create-react-app</code>
             </NewTabLink>{" "}
@@ -75,7 +74,10 @@ function Introduction() {
 
           <h4>Can I view the source code?</h4>
           <p>
-            Yes&mdash;see <NewTabLink href="https://github.com/decb/typing-test/">here</NewTabLink>
+            Yes&mdash;see{" "}
+            <NewTabLink href="https://github.com/decb/typing-test/">
+              here
+            </NewTabLink>
           </p>
         </div>
       </Modal>

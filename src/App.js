@@ -70,11 +70,13 @@ function viewFromAppState(appState, data) {
         />
       );
     default:
-      return <Alert
-        message="An unknown error occured. Perhaps try refreshing the page."
-        type="error"
-        style={{ marginTop: "0.7rem" }}
-        showIcon
-      />;
+      return (
+        <Alert
+          message="An unknown error occured. Perhaps try refreshing the page."
+          type="error"
+          style={{ marginTop: "0.7rem" }}
+          showIcon
+        />
+      );
   }
 }

@@ -36,8 +36,8 @@ process dict =
   where
     replace from to = intercalate to . splitOn from
     validWord word =
-      (length word > 1 || word `elem` ["a", "i"]) && (not . all isDigit) word &&
-      word `elem` dict
+      (length word > 1 || word `elem` ["a", "i"]) &&
+      (not . all isDigit) word && word `elem` dict
 
 generateMarkov :: [String] -> Markov
 generateMarkov xs = M.map numericise (go xs M.empty)

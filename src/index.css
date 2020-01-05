@@ -1,11 +1,11 @@
-@import '~antd/dist/antd.css';
+@import "~antd/dist/antd.css";
 
 body {
-  background-color: #E8F7EE;
+  background-color: #e8f7ee;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
 

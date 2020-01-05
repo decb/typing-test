@@ -12,7 +12,7 @@ const sum = xs => xs.reduce((a, b) => a + b);
 const sameCount = (xs, ys) =>
   xs.length === 0
     ? 0
-    : sum(zipMap(pair => pair[0] === pair[1] ? 1 : 0, xs, ys));
+    : sum(zipMap(pair => (pair[0] === pair[1] ? 1 : 0), xs, ys));
 
 function buildMessage(
   wordsTyped,

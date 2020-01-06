@@ -36,7 +36,8 @@ framework, as well as the
 [Ant Design](https://ant.design/) UI
 framework. The React project itself is fairly simple, and I used
 [`create-react-app`](https://create-react-app.dev/)
-to generate the build scripts and initial structure.
+to generate the build scripts and initial structure. Testing is done using the
+[Jest](https://jestjs.io/) framework.
 
 ## Running locally
 

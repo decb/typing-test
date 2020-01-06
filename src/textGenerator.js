@@ -1,4 +1,4 @@
-export function nWords(data, n) {
+export function genWords(data, n) {
   if (data !== undefined) {
     const res = [randomWord(data)];
     for (let i = 1; i < n; i++) {

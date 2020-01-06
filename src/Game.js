@@ -1,7 +1,7 @@
 import React from "react";
 import { Button, Card, Col, Row } from "antd";
 
-import { addWord, nWords } from "./textGenerator";
+import { addWord, genWords } from "./textGenerator";
 import Timer from "./Timer";
 import UserInput from "./UserInput";
 import Words from "./Words";
@@ -14,7 +14,7 @@ function Game(props) {
   const [gameState, setGameState] = React.useState(gameStates.BEFORE);
   const [lower, setLower] = React.useState(0);
   const [targetWords, setTargetWords] = React.useState(() =>
-    nWords(props.data, wordsSize)
+    genWords(props.data, wordsSize)
   );
   const [progress, setProgress] = React.useState("");
   const [inputWords, setInputWords] = React.useState([]);
@@ -27,20 +27,13 @@ function Game(props) {
     }
   };
 
-  const makeStateTransition = (from, to) => {
-    if (gameState === from) {
-      setGameState(to);
-    }
-  };
-
-  const startGame = () =>
-    makeStateTransition(gameStates.BEFORE, gameStates.DURING);
-  const endGame = () => makeStateTransition(gameStates.DURING, gameStates.OVER);
+  const startGame = () => setGameState(gameStates.BEFORE);
+  const endGame = () => setGameState(gameStates.OVER);
 
   const resetGame = () => {
-    makeStateTransition(gameState, gameStates.BEFORE);
+    setGameState(gameStates.BEFORE);
     setLower(0);
-    setTargetWords(nWords(props.data, wordsSize));
+    setTargetWords(genWords(props.data, wordsSize));
     setProgress("");
     setInputWords([]);
   };

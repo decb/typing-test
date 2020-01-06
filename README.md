@@ -23,7 +23,7 @@ infinitely.
 The generated text rarely makes much sense, as the model only
 considers the current word rather than any larger context.
 
-## What technologies are used?
+## Which technologies are used?
 
 I wrote a script which automatically generates the Markov models of
 the source text using
@@ -49,7 +49,8 @@ yarn start      # or: npm run start
 
 > This requires you to have either [`yarn`](https://yarnpkg.com/en/) or [`npm`](https://www.npmjs.com/) installed.
 
-The page should then open in your default web browser, running on `localhost:3000`.
+The page should then open in your default web browser, running on
+`localhost:3000`.
 
 ## Future work
 

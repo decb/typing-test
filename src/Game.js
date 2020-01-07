@@ -27,7 +27,7 @@ function Game(props) {
     }
   };
 
-  const startGame = () => setGameState(gameStates.BEFORE);
+  const startGame = () => setGameState(gameStates.DURING);
   const endGame = () => setGameState(gameStates.OVER);
 
   const resetGame = () => {

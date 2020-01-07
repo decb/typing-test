@@ -47,7 +47,7 @@ yarn install    # or: npm install
 yarn start      # or: npm run start
 
 # to run the test suite:
-yarn test       # or: npm run test
+yarn test       # or: npm test
 ```
 
 > This requires you to have either [`yarn`](https://yarnpkg.com/en/) or [`npm`](https://www.npmjs.com/) installed.

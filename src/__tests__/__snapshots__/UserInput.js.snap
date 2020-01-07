@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<UserInput /> Renders correctly 1`] = `
+<input
+  autoCapitalize="off"
+  autoComplete="off"
+  autoCorrect="off"
+  className="ant-input"
+  disabled={false}
+  onChange={[Function]}
+  onKeyDown={[Function]}
+  spellCheck="false"
+  style={
+    Object {
+      "borderBottomRightRadius": 0,
+      "borderTopRightRadius": 0,
+    }
+  }
+  type="text"
+  value=""
+/>
+`;

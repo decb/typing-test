@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Words /> Renders correctly 1`] = `
+<div
+  style={
+    Object {
+      "overflow": "hidden",
+      "whiteSpace": "nowrap",
+    }
+  }
+>
+  <code>
+    <span
+      style={
+        Object {
+          "backgroundColor": "#ffe58f",
+          "fontWeight": "bold",
+          "padding": "3px",
+        }
+      }
+    >
+      ab
+    </span>
+     
+    
+  </code>
+</div>
+`;

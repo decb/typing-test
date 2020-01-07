@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Result /> Renders correctly 1`] = `
+<div
+  className="ant-alert ant-alert-success ant-alert-with-description ant-alert-no-icon"
+  data-show={true}
+>
+  <span
+    className="ant-alert-message"
+  >
+    Test complete
+  </span>
+  <span
+    className="ant-alert-description"
+  >
+    In one minute, you typed 1 words, of which 0 were correct (0%). This amounted to 1 characters, of which 0 were correct (0%). To try again, press the reset button or select a new text source.
+  </span>
+</div>
+`;

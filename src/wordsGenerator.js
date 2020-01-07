@@ -1,5 +1,5 @@
 export function genWords(data, n) {
-  if (data !== undefined) {
+  if (data !== undefined && Object.keys(data).length !== 0) {
     const res = [randomWord(data)];
     for (let i = 1; i < n; i++) {
       res[i] = nextWord(data, res[i - 1]);
@@ -11,8 +11,16 @@ export function genWords(data, n) {
 }
 
 export function addWord(data, words) {
-  const last = words[words.length - 1];
-  return words.concat([nextWord(data, last)]);
+  if (data !== undefined && Object.keys(data).length !== 0) {
+    if (words.length > 0) {
+      const last = words[words.length - 1];
+      return words.concat([nextWord(data, last)]);
+    } else {
+      return [randomWord(data)];
+    }
+  } else {
+    return [];
+  }
 }
 
 function randInRange(lower, upper) {

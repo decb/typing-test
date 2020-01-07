@@ -1,0 +1,165 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<App /> Renders correctly 1`] = `
+<div
+  style={
+    Object {
+      "borderRadius": "8px",
+      "margin": "0 auto",
+      "maxWidth": "700px",
+      "padding": "1.2rem 8px",
+      "width": "95%",
+    }
+  }
+>
+  <div
+    style={
+      Object {
+        "textAlign": "center",
+      }
+    }
+  >
+    <h1>
+      Typing Speed Test
+    </h1>
+  </div>
+  <main
+    className="ant-layout-content"
+  >
+    <div
+      className="ant-card ant-card-bordered"
+    >
+      <div
+        className="ant-card-body"
+        style={Object {}}
+      >
+        This is a simple game to test your typing speed. To begin, select a text source below, then randomly generated text based on the source will appear. When you start typing a 60 second countdown begins, the aim is to type as many words as possible before time runs out. Input is not case-sensitive, and you must input a space between each completed word. To find out more about how this works, click
+         
+        <button
+          className="ant-btn ant-btn-sm"
+          onClick={[Function]}
+          type="button"
+        >
+          <span>
+            here
+          </span>
+        </button>
+      </div>
+    </div>
+    <div
+      className="ant-select ant-select-enabled"
+      onBlur={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onMouseDown={[Function]}
+      onMouseOut={[Function]}
+      onMouseUp={[Function]}
+      onTouchStart={[Function]}
+      style={
+        Object {
+          "marginTop": "0.7rem",
+          "whiteSpace": "nowrap",
+          "width": "100%",
+        }
+      }
+    >
+      <div
+        aria-autocomplete="list"
+        aria-controls="test-uuid"
+        aria-expanded={false}
+        aria-haspopup="true"
+        className="ant-select-selection
+            ant-select-selection--single"
+        onKeyDown={[Function]}
+        role="combobox"
+        tabIndex={0}
+      >
+        <div
+          className="ant-select-selection__rendered"
+        >
+          <div
+            className="ant-select-selection-selected-value"
+            style={
+              Object {
+                "display": "block",
+                "opacity": 1,
+              }
+            }
+            title="—"
+          >
+            —
+          </div>
+        </div>
+        <span
+          className="ant-select-arrow"
+          onClick={[Function]}
+          style={
+            Object {
+              "WebkitUserSelect": "none",
+              "userSelect": "none",
+            }
+          }
+          unselectable="on"
+        >
+          <i
+            aria-label="icon: down"
+            className="anticon anticon-down ant-select-arrow-icon"
+          >
+            <svg
+              aria-hidden="true"
+              className=""
+              data-icon="down"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+              />
+            </svg>
+          </i>
+        </span>
+      </div>
+    </div>
+    <div
+      className="ant-alert ant-alert-info"
+      data-show={true}
+      style={
+        Object {
+          "marginTop": "0.7rem",
+        }
+      }
+    >
+      <i
+        aria-label="icon: info-circle"
+        className="anticon anticon-info-circle ant-alert-icon"
+      >
+        <svg
+          aria-hidden="true"
+          className=""
+          data-icon="info-circle"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm32 664c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V456c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272zm-32-344a48.01 48.01 0 0 1 0-96 48.01 48.01 0 0 1 0 96z"
+          />
+        </svg>
+      </i>
+      <span
+        className="ant-alert-message"
+      >
+        Select a text source above.
+      </span>
+      <span
+        className="ant-alert-description"
+      />
+    </div>
+  </main>
+</div>
+`;

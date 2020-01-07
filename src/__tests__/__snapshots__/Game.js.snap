@@ -1,0 +1,136 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Game /> Renders correctly 1`] = `
+<div
+  className="ant-card ant-card-bordered"
+  style={
+    Object {
+      "marginTop": "0.7rem",
+    }
+  }
+>
+  <div
+    className="ant-card-body"
+    style={Object {}}
+  >
+    <div
+      className="ant-row"
+      style={Object {}}
+    >
+      <div
+        className="ant-card ant-card-bordered ant-card-small"
+        style={
+          Object {
+            "width": "100%",
+          }
+        }
+      >
+        <div
+          className="ant-card-head"
+          style={Object {}}
+        >
+          <div
+            className="ant-card-head-wrapper"
+          >
+            <div
+              className="ant-card-head-title"
+            >
+              Words to type
+            </div>
+            <div
+              className="ant-card-extra"
+            >
+              <span>
+                60
+                 seconds
+              </span>
+            </div>
+          </div>
+        </div>
+        <div
+          className="ant-card-body"
+          style={Object {}}
+        >
+          <div
+            style={
+              Object {
+                "overflow": "hidden",
+                "whiteSpace": "nowrap",
+              }
+            }
+          >
+            <code>
+              <span
+                style={
+                  Object {
+                    "backgroundColor": "#ffe58f",
+                    "fontWeight": "bold",
+                    "padding": "3px",
+                  }
+                }
+              >
+                a
+              </span>
+               
+              a a a a a a a a a a a a a a a
+            </code>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      className="ant-row"
+      style={
+        Object {
+          "marginTop": "0.8rem",
+        }
+      }
+    >
+      <div
+        className="ant-col ant-col-xs-16 ant-col-sm-16 ant-col-md-20 ant-col-lg-20 ant-col-xl-20"
+        style={Object {}}
+      >
+        <input
+          autoCapitalize="off"
+          autoComplete="off"
+          autoCorrect="off"
+          className="ant-input"
+          disabled={false}
+          onChange={[Function]}
+          onKeyDown={[Function]}
+          spellCheck="false"
+          style={
+            Object {
+              "borderBottomRightRadius": 0,
+              "borderTopRightRadius": 0,
+            }
+          }
+          type="text"
+          value=""
+        />
+      </div>
+      <div
+        className="ant-col ant-col-xs-8 ant-col-sm-8 ant-col-md-4 ant-col-lg-4 ant-col-xl-4"
+        style={Object {}}
+      >
+        <button
+          className="ant-btn ant-btn-primary"
+          onClick={[Function]}
+          style={
+            Object {
+              "borderBottomLeftRadius": 0,
+              "borderTopLeftRadius": 0,
+              "width": "100%",
+            }
+          }
+          type="button"
+        >
+          <span>
+            Reset
+          </span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;

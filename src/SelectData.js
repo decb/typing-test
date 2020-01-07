@@ -13,7 +13,7 @@ function SelectData(props) {
       fetch(`${window.location.href}/data/${name}.json`)
         .then(response => response.json())
         .then(data => props.setAppState({ data, state: appStates.READY }))
-        .catch(err => props.setFetchState({ state: appStates.ERROR }));
+        .catch(err => props.setAppState({ state: appStates.ERROR }));
     } else {
       props.setAppState({ state: appStates.NONE_SELECTED });
     }

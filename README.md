@@ -1,14 +1,13 @@
 # Typing speed test
 
-This is a simple game to test your typing speed. To begin, select a text
-source below, then randomly generated text based on the source will
+This is a simple game to test your typing speed. You select a text
+source, then randomly generated text based on the source will
 appear. When you start typing a 60 second countdown begins, the aim is to
-type as many words as possible before time runs out. Input is not
-case-sensitive, and you must input a space between each completed word.
+type as many words as possible before time runs out.
 
 ![User interface screenshot](screenshot.png)
 
-## How is the text generated?</h4>
+## How is the text generated?
 
 The text is generated using
 [Markov chains](https://en.wikipedia.org/wiki/Markov_chain)
@@ -41,11 +40,14 @@ to generate the build scripts and initial structure. Testing is done using the
 
 ## Running locally
 
-To run this project locally, simple clone this repository and do:
+To run this project locally, simple clone this repository, navigate to it, then do:
 
-```
+```bash
 yarn install    # or: npm install
 yarn start      # or: npm run start
+
+# to run the test suite:
+yarn test       # or: npm run test
 ```
 
 > This requires you to have either [`yarn`](https://yarnpkg.com/en/) or [`npm`](https://www.npmjs.com/) installed.

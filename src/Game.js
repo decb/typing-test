@@ -1,7 +1,7 @@
 import React from "react";
 import { Button, Card, Col, Row } from "antd";
 
-import { addWord, genWords } from "./textGenerator";
+import { addWord, genWords } from "./wordsGenerator";
 import Timer from "./Timer";
 import UserInput from "./UserInput";
 import Words from "./Words";

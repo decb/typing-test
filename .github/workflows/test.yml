@@ -1,16 +1,15 @@
-name: Yarn CI
+name: Test CI
 
 on: [push]
 
 jobs:
-  build:
+  test:
 
     runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v2
-    - name: Run tests
-      uses: actions/setup-node@v1
+    - uses: actions/setup-node@v1
       with:
         node-version: 12.x
     - run: npm i -g yarn

@@ -1,5 +1,7 @@
 # Typing speed test
 
+![Test CI](https://github.com/decb/typing-test/workflows/Test%20CI/badge.svg)
+
 This is a simple game to test your typing speed. You select a text
 source, then randomly generated text based on the source will
 appear. When you start typing a 60 second countdown begins, the aim is to
